@@ -2,7 +2,6 @@
 --Start of Function and Event Scope---------------------------------------------
 
 --Declaration of the 'main' function as an entry point for the event loop
---@main()
 local function main()
   --Retrieving timestamp at the beginning
   local startTime = DateTime.getTimestamp()
