@@ -1,8 +1,7 @@
 
 --Start of Function and Event Scope---------------------------------------------
 
---Declaration of the 'main' function as an entry point for the event loop
---@main()
+---Declaration of the 'main' function as an entry point for the event loop
 local function main()
   --Retrieving timestamp at the beginning
   local startTime = DateTime.getTimestamp()
@@ -21,7 +20,9 @@ local function main()
   -- Setting time zone to GMT, zone can be edited in IANA tz database format
   -- Due to a different behavior on windows machines the timezone is only
   -- changed when connected to a real device. See function description for more details.
-  if Engine.isEmulator() == false then
+
+  local isEmulator = Engine.getTypeName() == "SICK AppEngine"
+  if not isEmulator then
     DateTime.setTimeZone('GMT')
     print('Time zone switched to ' .. DateTime.getTimeZone())
     print('Date and time new time zone: ' .. DateTime.getDateTime())
